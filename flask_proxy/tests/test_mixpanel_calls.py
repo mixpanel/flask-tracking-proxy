@@ -69,9 +69,19 @@ class TestGroups:
 
     def test_get(self, client):
         resp = client.get('/groups?verbose=1&data=%s' % group_update_encoded)
-        print(resp.data)
         assert resp.json['status'] == 1
 
     def test_post(self, client):
         resp = client.post('/groups', data={'verbose': 1, 'data': json.dumps(group_update)})
         assert resp.json['status'] == 1
+
+class TestDecide:
+    def test_get_no_data(self, client):
+        resp = client.get('/decide?verbose=1')
+        assert 'error' in resp.json
+        assert resp.json['error'] == 'token, missing or empty'
+
+    def test_get(self, client):
+        resp = client.get('/decide?verbose=1verbose=1&version=3&lib=web&token=fake-token&distinct_id=user%40example.com')
+        assert 'error' in resp.json
+        assert resp.json['error'] == 'token, no project found'

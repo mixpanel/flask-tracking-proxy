@@ -38,6 +38,9 @@ def create_app():
         more control over each request type.
         """
 
+        # /decide is hosted on a different subdomain
+        mixpanel_url = 'https://decide.mixpanel.com' if path == 'decide' else 'https://api.mixpanel.com'
+
         # This relays the client's IP for geolocation lookup
         # The method via which you can retrieve the "real" client IP
         # is implementation specific so you may need to change this logic.
@@ -53,7 +56,7 @@ def create_app():
         # pass the request directly to Mixpanel
         resp = requests.request(
             method=request.method,
-            url='https://api.mixpanel.com%s' % request.path,
+            url='%s/%s' % (mixpanel_url, path),
             headers=headers,
             params=request.args,
             data=request.form,

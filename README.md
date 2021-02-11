@@ -17,7 +17,7 @@ Assuming you have Docker installed on your system, you can do the following:
 
 1. Clone the repo
 2. Build the Docker image: `docker build -t mixpanel-proxy .`
-3. Run a container using the image: `docker run --name my-tracking-proxy -d -p 5000:5000 mixpanel-proxy`
+3. Run a container using the image: `docker run -d -p 5000:5000 mixpanel-proxy`
 4. Visit `http://localhost:5000`
 
 ### Option 3: Run the Flask application directly
