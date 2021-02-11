@@ -1,6 +1,6 @@
 # Mixpanel Flask Proxy Example
 
-An example Flask application that serves as a proxy to Mixpanel's Ingestion API and JavaScript library endpoints. To learn more, visit our [Self-Hosted Tracking](https://developer.mixpanel.com/docs/self-hosted-tracking).
+An example Flask application that serves as a proxy to Mixpanel's Ingestion API and JavaScript library endpoints. To learn more, visit our [Self-Hosted Tracking Docs](https://developer.mixpanel.com/docs/self-hosted-tracking).
 
 :warning: **This is meant to be used for demonstration purposes only.** You should not run this in production without making [changes to the deployment](https://flask.palletsprojects.com/en/1.1.x/deploying/).
 
