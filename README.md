@@ -27,4 +27,6 @@ Assuming you have Docker installed on your system, you can do the following:
 4. Visit `http://localhost:5000`
 
 ## Running Tests
-Clone the repo and run `pytest` from the root directory
+1. Clone the repo
+2. Install dependencies `pip install -r requirements.txt`
+3. Run tests `pytest`
