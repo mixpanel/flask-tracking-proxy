@@ -14,20 +14,29 @@ def create_app():
 
     @app.route('/lib.js')
     def js_lib():
+        '''Proxy the full version of the JS SDK'''
         resp = requests.get('https://cdn.mxpnl.com/libs/mixpanel-2-latest.js')
         headers = filter_headers(resp.raw.headers.items())
         return Response(resp.content, resp.status_code, headers)
 
     @app.route('/lib.min.js')
     def js_lib_minified():
+        '''Proxy the minified version of the JS SDK'''
         resp = requests.get('https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js')
         headers = filter_headers(resp.raw.headers.items())
         return Response(resp.content, resp.status_code, headers)
 
+
     @app.route('/', defaults={'path': ''}, methods=['GET', 'POST'])
     @app.route('/<path:path>', methods=['GET', 'POST'])
     @cross_origin(supports_credentials=True, send_wildcard=False)
-    def root(path):
+    def api_request(path):
+        """A catch-all route that proxies https://api.mixpanel.com
+
+        This provides support for all of the Mixpanel Ingestion API endpoints in a single route.
+        You could break this into multiple routes for /track, /engage, and /groups if you want
+        more control over each request type.
+        """
 
         # This relays the client's IP for geolocation lookup
         # The method via which you can retrieve the "real" client IP
@@ -41,6 +50,7 @@ def create_app():
 
         headers = {'X-REAL-IP': ip}
 
+        # pass the request directly to mixpanel
         resp = requests.request(
             method=request.method,
             url='https://api.mixpanel.com%s' % request.path,
