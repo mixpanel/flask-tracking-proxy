@@ -6,7 +6,7 @@ An example [Flask](https://flask.palletsprojects.com/en/1.1.x/) application that
 
 ## Installation
 
-There are a few ways you can use this repo to deploy a server that can be use to proxy Mixpanel API requests: one-click deploy to cloud, build a docker image, or copy and paste the nginx settings to your own nginx config file.
+There are a few ways you can use this repo to deploy a server that can be use to proxy Mixpanel API requests. Again, this should only be used for testing purposes. You'll want to make your own customizations and productionalize the deploy before going live.
 
 ### Option 1: One-click Deploy
 - [Run on Google Cloud](https://deploy.cloud.run?git_repo=https://github.com/mixpanel/flask-tracking-proxy)
