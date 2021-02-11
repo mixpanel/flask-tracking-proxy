@@ -50,7 +50,7 @@ def create_app():
 
         headers = {'X-REAL-IP': ip}
 
-        # pass the request directly to mixpanel
+        # pass the request directly to Mixpanel
         resp = requests.request(
             method=request.method,
             url='https://api.mixpanel.com%s' % request.path,
@@ -58,7 +58,11 @@ def create_app():
             params=request.args,
             data=request.form,
         )
+
+        # filter out some irrelevant response headers
         headers = filter_headers(resp.raw.headers.items())
+
+        # return the response from Mixpanel
         return Response(resp.content, resp.status_code, headers)
 
     return app
