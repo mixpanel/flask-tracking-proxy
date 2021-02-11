@@ -9,8 +9,8 @@ An example Flask application that serves as a proxy to Mixpanel's Ingestion API 
 There are a few ways you can use this repo to deploy a server that can be use to proxy Mixpanel API requests: one-click deploy to cloud, build a docker image, or copy and paste the nginx settings to your own nginx config file.
 
 ### Option 1: One-click Deploy
-- [Run on Google Cloud](https://deploy.cloud.run?git_repo=https://github.com/jbwyme/mixpanel-flask-proxy)
-- [Deploy to DigitalOcean](https://cloud.digitalocean.com/apps/new?repo=https://github.com/jbwyme/mixpanel-flask-proxy/tree/master)
+- [Run on Google Cloud](https://deploy.cloud.run?git_repo=https://github.com/mixpanel/flask-tracking-proxy)
+- [Deploy to DigitalOcean](https://cloud.digitalocean.com/apps/new?repo=https://github.com/mixpanel/flask-tracking-proxy/tree/master)
 
 ### Option 2: Docker Image
 Assuming you have Docker installed on your system, you can do the following:
