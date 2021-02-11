@@ -25,3 +25,6 @@ Assuming you have Docker installed on your system, you can do the following:
 2. Install dependencies `pip install -r requirements.txt`
 3. Start the app `python flask_proxy/app.py`
 4. Visit `http://localhost:5000`
+
+## Running Tests
+Clone the repo and run `pytest` from the root directory
