@@ -1,0 +1,7 @@
+{
+    "name": "flask-proxy",
+    "options": {
+        "allow-unauthenticated": true,
+        "port": 5000
+    }
+}

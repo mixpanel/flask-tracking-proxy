@@ -1,0 +1,9 @@
+spec:
+ name: mixpanel-api-flask-proxy
+ services:
+ - name: mixpanel-api-flask-proxy
+   git:
+     branch: master
+     repo_clone_url: https://github.com/jbwyme/mixpanel-flask-proxy.git
+   dockerfile_path: ./Dockerfile
+   http_port: 5000
